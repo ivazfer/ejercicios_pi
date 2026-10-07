@@ -30,7 +30,6 @@
         owner: www-data
         group: www-data
         mode: 0644
-
       # Crear base de datos
   #  # - name: "Crear base de datos"
   #     community.mysql.mysql_db:
