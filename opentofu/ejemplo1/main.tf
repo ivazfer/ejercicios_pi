@@ -1,6 +1,6 @@
 # Clon ligero sobre la imagen base: solo almacena los cambios diferenciales
 resource "libvirt_volume" "ej1-server1-disk" {
-  name             = "ej1-server1.qcow2"
+  name             = "ej1-ubuntu.qcow2"
   pool             = var.libvirt_pool_name
   base_volume_name = var.base_image
   base_volume_pool = var.libvirt_pool_name
@@ -9,14 +9,14 @@ resource "libvirt_volume" "ej1-server1-disk" {
 
 # ISO cloud-init con la configuración inicial de la máquina
 resource "libvirt_cloudinit_disk" "ej1-server1-cloudinit" {
-  name      = "ej1-server1-cloudinit.iso"
+  name      = "ej1-ubuntu-cloudinit.iso"
   pool      = var.libvirt_pool_name
   user_data = file("${path.module}/cloud-init/user-data1.yaml")
 }
 
 # Definición del dominio (máquina virtual)
 resource "libvirt_domain" "ej1-server1" {
-  name   = "ej1-server1"
+  name   = "ej1-ubuntu
   memory = 1024
   vcpu   = 2
 

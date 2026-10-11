@@ -1,5 +1,5 @@
 #cloud-config
-hostname: ej1-server1
+hostname: ej1-ubuntu
 
 timezone: Europe/Madrid
 users:
