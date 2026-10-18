@@ -1,0 +1,26 @@
+#cloud-config
+hostname: ej5-server3
+
+timezone: Europe/Madrid
+users:
+  - name: ismael
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJjvHrBWVkXrv53sFfWRXC2h42npOW1kdHE4PL6vpa3O ismael@DebianIsmael
+
+chpasswd:
+  expire: False
+  users:
+    - name: ismael
+      password: usuario
+      type: text
+
+# server2 no tiene salida a Internet: server1 no hace de router (ni reenvío de
+# paquetes ni NAT). Si se dejan estas líneas, cloud-init intenta usar apt en el
+# primer arranque, se queda reintentando y termina con error.
+# Descoméntalas cuando server1 le dé salida al exterior.
+#
+# package_update: true  # refresca índices de apt
+# package_upgrade: true # aplica actualizaciones disponibles en el primer arranque

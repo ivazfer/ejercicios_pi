@@ -3,18 +3,18 @@ hostname: ej5-server2
 
 timezone: Europe/Madrid
 users:
-  - name: ubuntu
+  - name: ismael
     sudo: ALL=(ALL) NOPASSWD:ALL
     groups: users, admin
     shell: /bin/bash
     ssh_authorized_keys:
-      - ssh-ed25519 AAAA... sustituye esta línea por tu clave pública
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJjvHrBWVkXrv53sFfWRXC2h42npOW1kdHE4PL6vpa3O ismael@DebianIsmael
 
 chpasswd:
   expire: False
   users:
-    - name: ubuntu
-      password: asdasd
+    - name: ismael
+      password: usuario
       type: text
 
 # server2 no tiene salida a Internet: server1 no hace de router (ni reenvío de
