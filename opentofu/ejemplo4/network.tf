@@ -17,3 +17,10 @@ resource "libvirt_network" "ej4-aislada-static" {
   dhcp { enabled = false }
   autostart = true
 }
+
+# Red muy aislada: sin direcciones, el anfitrión no tiene IP en ella
+resource "libvirt_network" "ej4-muy-aislada" {
+  name      = "ej4-muy-aislada"
+  mode      = "none"
+  autostart = true
+}
